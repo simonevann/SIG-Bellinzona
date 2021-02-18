@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Esercizio21;
 
 import java.util.Scanner;
@@ -10,14 +6,16 @@ import java.util.Scanner;
 /**
  *
  * @author Simone
+ *
  */
+
 public class Esercizio21 {
     
     public static String askUser() {
         
         Scanner in = new Scanner(System.in);
             
-        return in.nextLine().trim().toLowerCase();
+        return in.nextLine().trim();
 
     }
     
@@ -101,7 +99,7 @@ public class Esercizio21 {
         do{
         
             System.out.println("Inserisci un numero intero:");        
-            primo = askUser();
+            primo = askUser().toLowerCase();
 
             if ( isInt(primo) ) {
                 priInt = Integer.valueOf(primo);
