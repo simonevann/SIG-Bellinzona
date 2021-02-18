@@ -27,7 +27,7 @@ public class Esercizio21 {
 
             for (int i = 1; i < num.length(); i++) {
 
-                if ( Character.isDigit(num.charAt(i)) == false  ) {            
+                if ( !Character.isDigit(num.charAt(i)) ) {            
                     return false;
                 }
 
@@ -50,7 +50,7 @@ public class Esercizio21 {
     
             for (int i = 1; i < num.length()-1; i++) {
 
-                if ( Character.isDigit(num.charAt(i)) == false  ) {
+                if ( !Character.isDigit(num.charAt(i)) ) {
                     
                     if ( !comma && num.charAt(i) == '.') {               
                         comma = true;              
