@@ -7,7 +7,7 @@ package figuregeometriche;
 public class Polygon extends Shape{
     
     private int sides; //Numeber of the sides
-    private int[] lengthSides; //Lenghts of the sides
+    private double[] lengthSides; //Lenghts of the sides
     private boolean equilateral = false; //If the shape is equilateral
     
     /**
@@ -19,12 +19,14 @@ public class Polygon extends Shape{
     }
     
     /**
-     * Set the lenght of the sides
+     * Set the lenght of the sides.
+     * If is an equilateral shape, set all sides equal to the first side
      * @param lenghtSides 
+     * @throws InvalidNumberOfSideException if the number of items in the array are greater than the number of side
      */
-    public void setLengthSides(int[] lenghtSides) {
+    public void setLengthSides(double[] lenghtSides) throws InvalidNumberOfSideException {
         if(lenghtSides.length > this.sides){
-            System.out.println("Error: values exeeds the number of sides of the polygon");
+            throw new InvalidNumberOfSideException();
         } else {
             if (this.isEquilateral()) {
                 this.setEquilateralSides(lenghtSides[0]);
@@ -36,16 +38,18 @@ public class Polygon extends Shape{
 
       /**
      * Set the lenght of one side
+     * If is an equilateral shape, set all sides equal to the inserted side
      * @param lenghtSides 
+     * @throws InvalidNumberOfSideException if the index i is greater than the number of side
      */
-    public void setLengthSides(int length, int i){
+    public void setLengthSides(double length, int i) throws InvalidNumberOfSideException{
         if( i > this.sides  - 1){
-            System.out.println("Error: index " + i + " exeed the number of sides of the polygon");
+            throw new InvalidNumberOfSideException();
         } else {
             if (this.isEquilateral()) {
                this.setEquilateralSides(length);
             } else {
-               int[] sides = this.getLengthSides();
+               double[] sides = this.getLengthSides();
                sides[i] = length;
                this.setLengthSides(sides);
             }       
@@ -80,7 +84,7 @@ public class Polygon extends Shape{
      * Get the sigle legths of sides
      * @return 
      */
-    public int[] getLengthSides() {
+    public double[] getLengthSides() {
         return lengthSides;
     }
     
@@ -88,7 +92,7 @@ public class Polygon extends Shape{
      * Set side length if in the caso of equilaterla shape
      * @param length 
      */
-    private void setEquilateralSides(int length){
+    private void setEquilateralSides(double length){
         for (int i = 0; i < this.getSides(); i++) {
             this.lengthSides[i] = length;
         }
@@ -99,7 +103,7 @@ public class Polygon extends Shape{
      * @param iof side
      * @return lenght
      */
-    public int getLengthSide(int i){
+    public double getLengthSide(int i){
         return this.getLengthSides()[i];
     }
     
@@ -107,7 +111,7 @@ public class Polygon extends Shape{
      * Get the perimeter of the shape
      * @return 
      */
-    public int getPerimeter(){
+    public double getPerimeter(){
         int perimeter = 0;
         for (int i = 0; i < this.getSides(); i++) {
             perimeter += this.getLengthSide(i);
@@ -117,14 +121,14 @@ public class Polygon extends Shape{
     
     public Polygon(int x, int y, int sides){
         super(x,y);
-        this.lengthSides = new int[sides];
+        this.lengthSides = new double[sides];
         this.setSides(sides);
     }
     
     public Polygon(int x, int y, int sides, boolean equilateral){
         super(x,y);
         this.setEquilateral(equilateral);
-        this.lengthSides = new int[sides];
+        this.lengthSides = new double[sides];
         this.setSides(sides);
     }
     
