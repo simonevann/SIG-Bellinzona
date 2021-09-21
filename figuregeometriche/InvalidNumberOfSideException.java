@@ -7,7 +7,6 @@ package figuregeometriche;
 public class InvalidNumberOfSideException extends Exception {
 
     public InvalidNumberOfSideException() {
-        System.out.println("Error: values exeeds the number of sides of the polygon");
     }
     
 }
