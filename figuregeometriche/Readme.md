@@ -2,5 +2,5 @@
 Shape<br/>
 │<br/>
 ├━━━━━━━━━━━━━━━━━━━┓<br/>
-Polygon             Circle<br/>
+Polygon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Circle<br/>
 │<br/>
