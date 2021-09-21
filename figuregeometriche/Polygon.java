@@ -6,7 +6,7 @@ package figuregeometriche;
  */
 public class Polygon extends Shape{
     
-    private int sides; //Numeber of the sides
+    private int sides; //Number of the sides
     private double[] lengthSides; //Lenghts of the sides
     private boolean equilateral = false; //If the shape is equilateral
     
