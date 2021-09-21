@@ -119,17 +119,57 @@ public class Polygon extends Shape{
         return perimeter;
     }
     
-    public Polygon(int x, int y, int sides){
+    /**
+     * Creating a polygon
+     * @param x position
+     * @param y position
+     * @param sides number of sides 
+     */
+    public Polygon(int x, int y, int sides) throws InvalidNumberOfSideException{
         super(x,y);
+        if (sides < 3) throw new InvalidNumberOfSideException();
         this.lengthSides = new double[sides];
         this.setSides(sides);
     }
     
-    public Polygon(int x, int y, int sides, boolean equilateral){
-        super(x,y);
-        this.setEquilateral(equilateral);
+    /**
+     * Creating a polygon
+     * @param x position
+     * @param y position
+     * @param sides number of sides 
+     * @param sideLenghts array with the lenghts of the sides
+     * @throws InvalidNumberOfSideException 
+     */
+    public Polygon(int x, int y, int sides, double[] sideLenghts) throws InvalidNumberOfSideException{
+        this(x, y, sides);
+        this.setLengthSides(sideLenghts);
+    }
+   
+    /**
+     * Creating a polygon
+     * @param x position
+     * @param y position
+     * @param sides number of sides 
+     * @param equi is equilateral
+     * @throws InvalidNumberOfSideException 
+     */
+    public Polygon(int x, int y, int sides, boolean equi) throws InvalidNumberOfSideException{
+        this(x, y, sides);
+        this.setEquilateral(equi);
+    }
+    
+    /**
+     * Creating an equilateral polygon
+     * @param x position
+     * @param y position
+     * @param sides number of sides 
+     * @param sideLength lenght of the sides
+     * @throws InvalidNumberOfSideException 
+     */
+     public Polygon(int x, int y, int sides, double sideLength) throws InvalidNumberOfSideException{
+        this(x, y, sides, true);
         this.lengthSides = new double[sides];
-        this.setSides(sides);
+        this.setEquilateralSides(sideLength);
     }
     
 }
