@@ -26,8 +26,26 @@ public class TriangleEqui extends Triangle{
         return super.getLengthSide(0) * Triangle.NSIDES;
     }
     
-    public TriangleEqui (int x, int y){
+    /**
+     * Crating an equilateral triangle
+     * @param x position
+     * @param y position
+     * @throws InvalidNumberOfSideException 
+     */
+    public TriangleEqui (int x, int y) throws InvalidNumberOfSideException{
         super(x, y, true);
+    }
+    
+    /**
+     * Crating an equilateral triangle
+     * @param x position
+     * @param y position
+     * @param length lenght of the sides
+     * @throws InvalidNumberOfSideException 
+     */
+    public TriangleEqui (int x, int y, double lenght) throws InvalidNumberOfSideException{
+        this(x, y);
+        this.setLengthSide(lenght);
     }
     
 }
