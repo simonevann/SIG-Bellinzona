@@ -9,12 +9,36 @@ public class Triangle extends Polygon{
 
     public static int NSIDES = 3; //Number of side in  triangle
     
-    public Triangle (int x, int y){
+    /**
+     * Crating a triangle
+     * @param x position
+     * @param y position
+     * @throws InvalidNumberOfSideException 
+     */
+    public Triangle (int x, int y) throws InvalidNumberOfSideException{
         super(x, y, Triangle.NSIDES);
     }
-        
-    public Triangle (int x, int y, boolean equilateral){
+    
+    /**
+     * Crating a triangle
+     * @param x position
+     * @param y position
+     * @param equilateral is equilateral
+     * @throws InvalidNumberOfSideException 
+     */
+    public Triangle (int x, int y, boolean equilateral) throws InvalidNumberOfSideException{
         super(x, y, Triangle.NSIDES, equilateral);
+    }
+    
+     /**
+     * Crating a triangle
+     * @param x position
+     * @param y position
+     * @param sideLengths array with the lenghts of the sides
+     * @throws InvalidNumberOfSideException 
+     */
+    public Triangle (int x, int y, double[] sideLengths) throws InvalidNumberOfSideException{
+        super(x, y, Triangle.NSIDES, sideLengths);
     }
     
 }
