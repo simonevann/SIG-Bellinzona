@@ -31,15 +31,14 @@ public class Shape {
     public void setCoordX(int coordX) {
         this.coordX = coordX;
     }
-
-    public void setCoordY(int coordY) {
-        this.coordY = coordY;
-    }
-   
-     /**
+    
+    /**
     * Set Y positioning
     * @param Y coordinate
     */
+    public void setCoordY(int coordY) {
+        this.coordY = coordY;
+    }
     
     public Shape(int x, int y){
         this.setCoordX(x);
