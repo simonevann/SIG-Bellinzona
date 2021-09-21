@@ -13,7 +13,7 @@ public class TriangleEqui extends Triangle{
      * Set the equilateral triangle sides length
      * @param length of the side
      */
-    public void setLengthSide(int length){
+    public void setLengthSide(double length) throws InvalidNumberOfSideException{
         super.setLengthSides(length, 0);
     }
     
@@ -22,7 +22,7 @@ public class TriangleEqui extends Triangle{
      * @return perimeter
      */
     @Override
-    public int getPerimeter(){
+    public double getPerimeter(){
         return super.getLengthSide(0) * Triangle.NSIDES;
     }
     
