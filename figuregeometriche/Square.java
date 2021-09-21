@@ -27,7 +27,27 @@ public class Square extends Polygon{
         return super.getLengthSide(0) * Square.NSIDES;
     }
     
-    public Square(int x, int y){
+    /**
+     * Crating a square
+     * @param x position
+     * @param y position
+     * @throws InvalidNumberOfSideException 
+     */
+    public Square(int x, int y) throws InvalidNumberOfSideException{
         super(x, y, Square.NSIDES, Square.EQUILATERAL);
     }
+    
+    /**
+     * Crating a square
+     * @param x position
+     * @param y position
+     * @param length lenght of the sides
+     * @throws InvalidNumberOfSideException 
+     */
+    public Square(int x, int y, double length) throws InvalidNumberOfSideException{
+        super(x, y, Square.NSIDES, length);
+    } 
+    
+    
+    
 }
