@@ -6,13 +6,13 @@ package figuregeometriche;
  */
 public class Circle extends Shape {
     
-    private int radius; //radius value
+    private double radius; //radius value
     
     /**
      * Get radius value
      * @return radius
      */
-    public int getRadius() {
+    public double getRadius() {
         return radius;
     }
     
@@ -20,7 +20,7 @@ public class Circle extends Shape {
      * Get the diameter
      * @return diameter
      */
-    public int getDiameter(){
+    public double getDiameter(){
         return this.getRadius() * 2;
     }
     
@@ -28,7 +28,7 @@ public class Circle extends Shape {
      * Set the radius
      * @param radius 
      */
-    public void setRadius(int radius) {
+    public void setRadius(double radius) {
         this.radius = radius;
     }
     
@@ -36,11 +36,11 @@ public class Circle extends Shape {
      * Get the perimeter of the shape
      * @return perimeter
      */
-    public float getPerimeter(){
-        return (float) (this.getDiameter() * Math.PI);
+    public double getPerimeter(){
+        return this.getDiameter() * Math.PI;
     }
     
-    public Circle(int x, int y, int r){
+    public Circle(int x, int y, double r){
         super(x,y);
         this.setRadius(radius);
     }
