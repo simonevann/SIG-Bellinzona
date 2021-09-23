@@ -37,8 +37,8 @@ public class Triangle extends Polygon{
      * @param sideLengths array with the lenghts of the sides
      * @throws InvalidNumberOfSideException 
      */
-    public Triangle (int x, int y, double[] sideLengths) throws InvalidNumberOfSideException{
-        super(x, y, Triangle.NSIDES, sideLengths);
+    public Triangle (int x, int y, double sidesideLenghtA, double sidesideLenghtB, double sidesideLenghtC) throws InvalidNumberOfSideException{      
+        super(x, y, new double[] { sidesideLenghtA, sidesideLenghtB, sidesideLenghtC });
     }
     
 }
