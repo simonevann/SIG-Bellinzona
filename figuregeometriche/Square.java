@@ -19,6 +19,17 @@ public class Square extends Polygon{
     }
     
     /**
+     * Overriding the setLengthSides in Polygon class to mantain all sides equal
+     * @param length
+     * @param i
+     * @throws InvalidNumberOfSideException 
+     */
+    @Override
+    public void setLengthSides(double length, int i) throws InvalidNumberOfSideException {
+        this.setLengthSide(length);
+    }
+    
+    /**
      * Get the perimeter ot the square
      * @return perimeter
      */
@@ -47,7 +58,5 @@ public class Square extends Polygon{
     public Square(int x, int y, double length) throws InvalidNumberOfSideException{
         super(x, y, Square.NSIDES, length);
     } 
-    
-    
-    
+       
 }
