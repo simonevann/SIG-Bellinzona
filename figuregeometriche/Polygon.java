@@ -6,7 +6,6 @@ package figuregeometriche;
  */
 public class Polygon extends Shape{
     
-    private int sides; //Number of the sides
     private double[] lengthSides; //Lenghts of the sides
     private boolean equilateral = false; //If the shape is equilateral
     
@@ -15,7 +14,7 @@ public class Polygon extends Shape{
      * @param sides 
      */
     private void setSides(int sides) {
-        this.sides = sides;
+         this.lengthSides = new double[sides];
     }
     
     /**
@@ -25,7 +24,7 @@ public class Polygon extends Shape{
      * @throws InvalidNumberOfSideException if the number of items in the array are greater than the number of side
      */
     public void setLengthSides(double[] lenghtSides) throws InvalidNumberOfSideException {
-        if(lenghtSides.length > this.sides){
+        if(lenghtSides.length != this.lengthSides.length){
             throw new InvalidNumberOfSideException();
         } else {
             if (this.isEquilateral()) {
@@ -43,7 +42,7 @@ public class Polygon extends Shape{
      * @throws InvalidNumberOfSideException if the index i is greater than the number of side
      */
     public void setLengthSides(double length, int i) throws InvalidNumberOfSideException{
-        if( i > this.sides  - 1){
+        if( i > this.lengthSides.length  - 1){
             throw new InvalidNumberOfSideException();
         } else {
             if (this.isEquilateral()) {
@@ -77,7 +76,7 @@ public class Polygon extends Shape{
      * @return 
      */
     public int getSides() {
-        return sides;
+        return this.lengthSides.length;
     }
     
     /**
@@ -140,8 +139,8 @@ public class Polygon extends Shape{
      * @param sideLenghts array with the lenghts of the sides
      * @throws InvalidNumberOfSideException 
      */
-    public Polygon(int x, int y, int sides, double[] sideLenghts) throws InvalidNumberOfSideException{
-        this(x, y, sides);
+    public Polygon(int x, int y, double[] sideLenghts) throws InvalidNumberOfSideException{
+        this(x, y, sideLenghts.length);
         this.setLengthSides(sideLenghts);
     }
    
