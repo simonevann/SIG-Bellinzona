@@ -31,6 +31,7 @@ public class Polygon extends Shape{
             }
         }
         this.lengthSides = newSides;
+        this.setEquilateral(this.isEquilateralChange());
     }
     
     /**
@@ -46,7 +47,7 @@ public class Polygon extends Shape{
             if (this.isEquilateral()) {
                 this.setEquilateralSides(lenghtSides[0]);
             } else {
-                this.lengthSides = lenghtSides;
+                this.lengthSides = lenghtSides.clone();
                 this.setEquilateral(this.isEquilateralChange());
             }
         }
@@ -154,7 +155,6 @@ public class Polygon extends Shape{
     public Polygon(int x, int y, int sides) throws InvalidNumberOfSideException{
         super(x,y);
         if (sides < 3) throw new InvalidNumberOfSideException();
-        this.lengthSides = new double[sides];
         this.setSides(sides);
     }
     
@@ -168,7 +168,7 @@ public class Polygon extends Shape{
      */
     public Polygon(int x, int y, double[] sideLenghts) throws InvalidNumberOfSideException{
         this(x, y, sideLenghts.length);
-        this.setLengthSides(sideLenghts);
+        this.setLengthSides(sideLenghts.clone());
     }
    
     /**
