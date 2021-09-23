@@ -2,7 +2,7 @@ package figuregeometriche;
 
 /**
  * Definition of a basic polygon
- * @author simon
+ * @author Simone Vannucci
  */
 public class Polygon extends Shape{
     
