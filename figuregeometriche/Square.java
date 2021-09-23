@@ -39,6 +39,13 @@ public class Square extends Polygon{
     }
     
     /**
+     * Overriding the changeNumberSides in Polygon class to mantain the right number of sides 
+     * @param sides 
+     */
+    @Override
+    public void changeNumberSides(int sides){}
+    
+    /**
      * Crating a square
      * @param x position
      * @param y position
