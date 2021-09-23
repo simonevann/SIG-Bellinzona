@@ -2,43 +2,24 @@
 package figuregeometriche;
 
 /**
- * Definition of a square
+ * Definition of a triangle
  * @author Simone Vannucci
  */
-public class Square extends Polygon{
-    
-    public static int NSIDES = 4; //Number of side in  square
-    public static boolean EQUILATERAL = true; //Is equilateral
-    
-    /**
-     * Set the square sides length
-     * @param length of the side
-     */
-    public void setLengthSide(double length) throws InvalidNumberOfSideException{
-        super.setLengthSides(length, 0);
-    }
+public class Triangle extends Polygon{
+
+    public static int NSIDES = 3; //Number of side in  triangle
     
     /**
-     * Overriding the setLengthSides in Polygon class to mantain all sides equal
-     * @param length
-     * @param i
+     * Crating a triangle
+     * @param x position
+     * @param y position
      * @throws InvalidNumberOfSideException 
      */
-    @Override
-    public void setLengthSides(double length, int i) throws InvalidNumberOfSideException {
-        this.setLengthSide(length);
+    public Triangle (int x, int y) throws InvalidNumberOfSideException{
+        super(x, y, Triangle.NSIDES);
     }
     
-    /**
-     * Get the perimeter ot the square
-     * @return perimeter
-     */
-    @Override
-    public double getPerimeter(){
-        return super.getLengthSide(0) * Square.NSIDES;
-    }
-    
-    /**
+     /**
      * Overriding the changeNumberSides in Polygon class to mantain the right number of sides 
      * @param sides 
      */
@@ -46,24 +27,25 @@ public class Square extends Polygon{
     public void changeNumberSides(int sides){}
     
     /**
-     * Crating a square
+     * Crating a triangle
      * @param x position
      * @param y position
+     * @param equilateral is equilateral
      * @throws InvalidNumberOfSideException 
      */
-    public Square(int x, int y) throws InvalidNumberOfSideException{
-        super(x, y, Square.NSIDES, Square.EQUILATERAL);
+    public Triangle (int x, int y, boolean equilateral) throws InvalidNumberOfSideException{
+        super(x, y, Triangle.NSIDES, equilateral);
     }
     
-    /**
-     * Crating a square
+     /**
+     * Crating a triangle
      * @param x position
      * @param y position
-     * @param length lenght of the sides
+     * @param sideLengths array with the lenghts of the sides
      * @throws InvalidNumberOfSideException 
      */
-    public Square(int x, int y, double length) throws InvalidNumberOfSideException{
-        super(x, y, Square.NSIDES, length);
-    } 
-       
+    public Triangle (int x, int y, double sidesideLenghtA, double sidesideLenghtB, double sidesideLenghtC) throws InvalidNumberOfSideException{      
+        super(x, y, new double[] { sidesideLenghtA, sidesideLenghtB, sidesideLenghtC });
+    }
+    
 }
