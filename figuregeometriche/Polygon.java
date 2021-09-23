@@ -18,6 +18,22 @@ public class Polygon extends Shape{
     }
     
     /**
+     * Canghe the number of sides
+     * Caution: if the number of sides is smaller than the previous, the lasts data will be lost
+     * @param sides number of sides
+     */
+    public void changeNumberSides(int sides){
+        double[] newSides = new double[sides];
+        double[] oldSides = this.getLengthSides();
+        for (int i = 0; i < newSides.length; i++) {
+            if( i < oldSides.length){
+                newSides[i] = oldSides[i];
+            }
+        }
+        this.lengthSides = newSides;
+    }
+    
+    /**
      * Set the lenght of the sides.
      * If is an equilateral shape, set all sides equal to the first side
      * @param lenghtSides 
@@ -31,6 +47,7 @@ public class Polygon extends Shape{
                 this.setEquilateralSides(lenghtSides[0]);
             } else {
                 this.lengthSides = lenghtSides;
+                this.setEquilateral(this.isEquilateralChange());
             }
         }
     }
@@ -45,13 +62,10 @@ public class Polygon extends Shape{
         if( i > this.lengthSides.length  - 1){
             throw new InvalidNumberOfSideException();
         } else {
-            if (this.isEquilateral()) {
-               this.setEquilateralSides(length);
-            } else {
-               double[] sides = this.getLengthSides();
-               sides[i] = length;
-               this.setLengthSides(sides);
-            }       
+            double[] sides = this.getLengthSides();
+            sides[i] = length;
+            this.setLengthSides(sides);
+            this.setEquilateral(this.isEquilateralChange()); 
         }
     }
     
@@ -69,6 +83,19 @@ public class Polygon extends Shape{
      */
     public boolean isEquilateral() {
         return equilateral;
+    }
+    
+    /**
+     * Get if the shape is equilateral after a modify
+     * @return 
+     */
+    public boolean isEquilateralChange() {
+        for (int i = 0; i < this.lengthSides.length; i++) {
+            if( this.lengthSides[0] != this.lengthSides[i]){
+                return false;
+            }
+        }
+        return true;
     }
     
     /**
