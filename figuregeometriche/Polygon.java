@@ -108,11 +108,11 @@ public class Polygon extends Shape{
     }
     
     /**
-     * Get the sigle legths of sides
+     * Get the legths of all sides
      * @return 
      */
     public double[] getLengthSides() {
-        return lengthSides;
+        return this.lengthSides.clone();
     }
     
     /**
