@@ -1,0 +1,13 @@
+
+package animale;
+
+/**
+ * Herbivorous
+ * @author simone vannucci
+ */
+public class Erbivoro extends Animale implements IErbivoro{
+
+    @Override
+    public void mangiaErba() {}
+    
+}
