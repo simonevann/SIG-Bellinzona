@@ -1,0 +1,12 @@
+package animale;
+
+/**
+ * Omnivorous
+ * @author simon
+ */
+public class Onnivoro extends Carnivoro implements ICarnivoro, IErbivoro {
+
+    @Override
+    public void mangiaErba() {}
+    
+}
