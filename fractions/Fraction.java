@@ -9,7 +9,7 @@ import java.util.logging.Logger;
  */
 public class Fraction {
 
-    private final int NUM, DEN; //Numerator and denumerator
+    private final int num, den; //Numerator and denumerator, read-only, setted by the constructor
     public final static int DEFAULTNUMERATOR = 1; //Default numerator if is zero
 
     /**
@@ -18,7 +18,7 @@ public class Fraction {
      * @return numerator
      */
     public int getNumerator() {
-        return NUM;
+        return num;
     }
 
     /**
@@ -27,7 +27,7 @@ public class Fraction {
      * @return
      */
     public int getDenominator() {
-        return DEN;
+        return den;
     }
 
     /**
@@ -35,6 +35,7 @@ public class Fraction {
      *
      * @param frc fraction to multiply
      * @return result of moltiplication
+     * @throws fraction.zeroDenominatorException
      */
     public Fraction multiply(Fraction frc) throws zeroDenominatorException {
         int newNum = this.getNumerator() * frc.getNumerator();
@@ -47,6 +48,7 @@ public class Fraction {
      *
      * @param frc fraction to divide
      * @return result of division
+     * @throws fraction.zeroDenominatorException
      */
     public Fraction divide(Fraction frc) throws zeroDenominatorException {
         int newNum = (int) this.getNumerator() * frc.getDenominator();
@@ -59,6 +61,7 @@ public class Fraction {
      *
      * @param frc fraction to add
      * @return result of addition
+     * @throws fraction.zeroDenominatorException
      */
     public Fraction add(Fraction frc) throws zeroDenominatorException {
         int newDen = this.getDenominator() * frc.getDenominator();
@@ -73,6 +76,7 @@ public class Fraction {
      *
      * @param frc fraction to subtract
      * @return result of subtraction
+     * @throws fraction.zeroDenominatorException
      */
     public Fraction subtract(Fraction frc) throws zeroDenominatorException {
         int newDen = this.getDenominator() * frc.getDenominator();
@@ -116,7 +120,7 @@ public class Fraction {
      * @return true if improper
      */
     private boolean isImproper() {
-        return (this.getNumerator() > this.getDenominator());
+        return (Math.abs(this.getNumerator()) > Math.abs(this.getDenominator()));
     }
 
     /**
@@ -195,25 +199,24 @@ public class Fraction {
     }
 
     public Fraction(int num, int den) throws zeroDenominatorException {
-        if (num == 0) den = Fraction.DEFAULTNUMERATOR;
         if (den == 0){
             throw new zeroDenominatorException(); 
         } else if (den < 0) {
             den *= -1;
             num *= -1;
         }
+        if (num == 0) den = Fraction.DEFAULTNUMERATOR;
         int gcd = Fraction.GCD(num, den);
-        this.DEN = den / gcd;
-        this.NUM = num / gcd;
+        this.den = den / gcd;
+        this.num = num / gcd;
     }
 
     public Fraction(int num) throws zeroDenominatorException {
         this(num, Fraction.DEFAULTNUMERATOR);
     }
 
-    public Fraction(Fraction fr) {
-        this.DEN = fr.getDenominator();
-        this.NUM = fr.getNumerator();
+    public Fraction(Fraction fr) throws zeroDenominatorException {
+        this(fr.getNumerator(), fr.getDenominator());
     }
 
 }
