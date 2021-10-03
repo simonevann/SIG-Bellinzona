@@ -37,7 +37,7 @@ public class Fraction {
      * @return result of moltiplication
      * @throws fraction.zeroDenominatorException
      */
-    public Fraction multiply(Fraction frc) throws zeroDenominatorException {
+    public Fraction multiply(Fraction frc) throws ZeroDenominatorException {
         int newNum = this.getNumerator() * frc.getNumerator();
         int newDen = this.getDenominator() * frc.getDenominator();
         return new Fraction(newNum, newDen);
@@ -50,7 +50,7 @@ public class Fraction {
      * @return result of division
      * @throws fraction.zeroDenominatorException
      */
-    public Fraction divide(Fraction frc) throws zeroDenominatorException {
+    public Fraction divide(Fraction frc) throws ZeroDenominatorException {
         int newNum = (int) this.getNumerator() * frc.getDenominator();
         int newDen = (int) this.getDenominator() * frc.getNumerator();
         return new Fraction(newNum, newDen);
@@ -61,9 +61,9 @@ public class Fraction {
      *
      * @param frc fraction to add
      * @return result of addition
-     * @throws fraction.zeroDenominatorException
+     * @throws fraction.ZeroDenominatorException
      */
-    public Fraction add(Fraction frc) throws zeroDenominatorException {
+    public Fraction add(Fraction frc) throws ZeroDenominatorException {
         int newDen = this.getDenominator() * frc.getDenominator();
         int num1 = this.getNumerator() * frc.getDenominator();
         int num2 = frc.getNumerator() * this.getDenominator();
@@ -78,7 +78,7 @@ public class Fraction {
      * @return result of subtraction
      * @throws fraction.zeroDenominatorException
      */
-    public Fraction subtract(Fraction frc) throws zeroDenominatorException {
+    public Fraction subtract(Fraction frc) throws ZeroDenominatorException {
         int newDen = this.getDenominator() * frc.getDenominator();
         int num1 = this.getNumerator() * frc.getDenominator();
         int num2 = frc.getNumerator() * this.getDenominator();
@@ -156,7 +156,7 @@ public class Fraction {
      *
      * @return mixed fraction
      */
-    private String renderAsMixed() throws zeroDenominatorException {
+    private String renderAsMixed() throws ZeroDenominatorException {
         Fraction mixedFrc = new Fraction(this.getProperNumeratior(), this.getDenominator());
         Fraction apparentFrc = this.subtract(mixedFrc);
         return apparentFrc.renderFraction() + "+" + mixedFrc.renderFraction();
@@ -198,24 +198,24 @@ public class Fraction {
         return null;
     }
 
-    public Fraction(int num, int den) throws zeroDenominatorException {
+    public Fraction(int num, int den) throws ZeroDenominatorException {
         if (den == 0){
-            throw new zeroDenominatorException(); 
+            throw new ZeroDenominatorException(); 
         } else if (den < 0) {
             den *= -1;
             num *= -1;
         }
-        if (num == 0) den = Fraction.DEFAULTNUMERATOR;
+        if (num == 0) num = Fraction.DEFAULTNUMERATOR;
         int gcd = Fraction.GCD(num, den);
         this.den = den / gcd;
         this.num = num / gcd;
     }
 
-    public Fraction(int num) throws zeroDenominatorException {
+    public Fraction(int num) throws ZeroDenominatorException {
         this(num, Fraction.DEFAULTNUMERATOR);
     }
 
-    public Fraction(Fraction fr) throws zeroDenominatorException {
+    public Fraction(Fraction fr) throws ZeroDenominatorException {
         this(fr.getNumerator(), fr.getDenominator());
     }
 
