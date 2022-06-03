@@ -14,6 +14,9 @@ Azienda<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|_Rack<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|_Apparati
 
+### Start
+Il software di attiva dalla maschera START
+
 ## Operazioni sugli asset
 
 ### Aggiunta asset
