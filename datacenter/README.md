@@ -3,7 +3,7 @@
 Questo progetto è finalizzato alla gestione di molteplici datacenter e dei suoi componenti, in particolare
 - Sale
 - Rack
-- Apparati di rete, host e client
+- Apparati (Switch,router,server,...)
 - Cablaggi<br>
 In seguito verranno chiamati **asset**
 ### Struttura
